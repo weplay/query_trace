@@ -1,4 +1,9 @@
 module QueryTrace
+  
+  def self.enable!
+    ::ActiveRecord::ConnectionAdapters::AbstractAdapter.send(:include, QueryTrace)
+  end
+  
   def self.append_features(klass)
     super
     klass.class_eval do
@@ -45,6 +50,4 @@ module QueryTrace
   end
 end
 
-class ::ActiveRecord::ConnectionAdapters::AbstractAdapter
-  include QueryTrace
-end
+QueryTrace.enable! if ENV["QUERY_TRACE"]

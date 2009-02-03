@@ -9,10 +9,18 @@ have a problem, they will pinpoint the location of that problem for you.
 
 == Usage
 
-All you have to do is have the plugin installed - QueryTrace takes care of the rest, including:
+Either install the QueryTrace as a plugin or as a gem. You can enable QueryTrace by setting the
+QUERY_TRACE environment variable like so:
 
-* Only displaying when at the DEBUG log level
-* Honoring your log colorization settings
+	QUERY_TRACE=true script/server
+
+If you want QueryTrace to always be enabled, create a file in config/initializers, and add the
+following line:
+
+	QueryTrace.enable!
+
+QueryTrace only outputs traces at the at the DEBUG log level, and honors your log colorization
+settings.
 
 == Example
 
