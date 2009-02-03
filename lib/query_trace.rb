@@ -44,3 +44,7 @@ module QueryTrace
     trace.select{|t| /#{Regexp.escape(File.expand_path(RAILS_ROOT))}/ =~ t}.reject{|t| VENDOR_RAILS_REGEXP =~ t}.collect{|t| t.gsub(RAILS_ROOT + '/', '')}
   end
 end
+
+class ::ActiveRecord::ConnectionAdapters::AbstractAdapter
+  include QueryTrace
+end
