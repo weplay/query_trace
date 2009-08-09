@@ -1,0 +1,5 @@
+Version 0.0.2 9-Aug-2009
+------------------------
+- Started with the jnicklas gemified fork
+- Pulled in ericworking's patch to use Rails backtrace cleaner
+- Bumped gem version to force rebuild
