@@ -1,7 +1,14 @@
 module QueryTrace
+  mattr_accessor :depth
+  self.depth = 3
   
   def self.enable!
-    ::ActiveRecord::ConnectionAdapters::AbstractAdapter.send(:include, QueryTrace)
+    ::ActiveRecord::ConnectionAdapters::AbstractAdapter.send(:include, QueryTrace) unless defined?(@@trace_queries)
+    @@trace_queries = true
+  end
+  
+  def self.disable!
+    @@trace_queries = false
   end
   
   def self.append_features(klass)
@@ -21,11 +28,13 @@ module QueryTrace
   
   def log_info_with_trace(sql, name, runtime)
     log_info_without_trace(sql, name, runtime)
+
+    return unless @@trace_queries
     
     return unless @logger and @logger.debug?
     return if / Columns$/ =~ name
 
-    @logger.debug(format_trace(Rails.backtrace_cleaner.clean(caller)))
+    @logger.debug(format_trace(Rails.backtrace_cleaner.clean(caller)[0..self.depth]))
   end
   
   def format_trace(trace)
