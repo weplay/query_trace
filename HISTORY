@@ -3,3 +3,9 @@ Version 0.0.2 9-Aug-2009
 - Started with the jnicklas gemified fork
 - Pulled in ericworking's patch to use Rails backtrace cleaner
 - Bumped gem version to force rebuild
+
+Version 0.0.3 27-Nov-2009
+-------------------------
+- Various minor cleanups
+- Added Evgeniy Dolzhenko's changes to allow disabling on the fly and setting trace depth
+- Pushed gem to gemcu

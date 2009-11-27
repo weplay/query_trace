@@ -1,6 +1,6 @@
 module QueryTrace
   mattr_accessor :depth
-  self.depth = 3
+  self.depth = 20
   
   def self.enable!
     ::ActiveRecord::ConnectionAdapters::AbstractAdapter.send(:include, QueryTrace) unless defined?(@@trace_queries)

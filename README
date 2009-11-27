@@ -12,15 +12,22 @@ have a problem, they will pinpoint the location of that problem for you.
 Either install the QueryTrace as a plugin or as a gem. You can enable QueryTrace by setting the
 QUERY_TRACE environment variable like so:
 
-	QUERY_TRACE=true script/server
+	QUERY_TRACE=true
 
 If you want QueryTrace to always be enabled, create a file in config/initializers, and add the
 following line:
 
 	QueryTrace.enable!
+	
+You can also turn QueryTrace back off at any time:
+
+  QueryTrace.disable!
 
 QueryTrace only outputs traces at the at the DEBUG log level, and honors your log colorization
-settings.
+settings. By default, it outputs up to 20 lines of stack trace. You can adjust this with the depth
+accessor:
+
+  QueryTrace.depth = 5
 
 == Example
 
@@ -78,11 +85,14 @@ After:
 
 == Additional Info
 
-Author: Nathaniel Talbott (for Terralien)
+Original Author: Nathaniel Talbott (for Terralien)
 Contact: nathaniel@talbott.ws
 License: MIT
 Home: http://github.com/ntalbott/query_trace/
 Subversion mirror: https://terralien.devguard.com/svn/projects/plugins/query_trace
 
+Current Author: Mike Gunderloy
+Contact: MikeG1@larkfarm.com
+Home: http://github.com/ffmike/query_trace, http://codaset.com/ffmike/query_trace
 
 Copyright (c) 2006 Nathaniel Talbott. All Rights Reserved.

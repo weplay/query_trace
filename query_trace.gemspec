@@ -2,19 +2,18 @@
 
 Gem::Specification.new do |s|
   s.name = %q{query_trace}
-  s.version = "0.0.2"
+  s.version = "0.0.3"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
-  s.authors = ["Nathaniel Talbott"]
-  s.date = %q{2009-02-03}
-  s.description = %q{Adds query origin tracing to your logs.}
+  s.authors = ["Nathaniel Talbott", "Mike Gunderloy"]
+  s.date = %q{2009-11-27}
+  s.description = %q{With query_trace enabled, the Rails logs will contain a partial stack trace for every executed SQL statement, making it easier to find where they are generated in your code.}
   s.email = %q{nathaniel@terralien.com}
   s.extra_rdoc_files = ["README", "MIT-LICENSE"]
   s.files = ["MIT-LICENSE", "README", "Rakefile", "lib/query_trace.rb"]
   s.has_rdoc = true
-  s.homepage = %q{http://github.com/ntalbott/query_trace/tree/master}
+  s.homepage = %q{http://github.com/ffmike/query_trace/tree/master}
   s.require_paths = ["lib"]
-  s.rubyforge_project = %q{query_trace}
   s.rubygems_version = %q{1.3.1}
   s.summary = %q{Adds query origin tracing to your logs.}
 
