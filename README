@@ -29,6 +29,20 @@ accessor:
 
   QueryTrace.depth = 5
 
+== Runtime Toggling of QueryTrace
+
+Starting with version 0.1.0 of QueryTrace, you can toggle tracing on or off without restarting the
+server (thanks to Doug Barth for implementing this). To do so, include QueryTrace in your environment so that
+it loads at server startup; you can use an initializer to set its initial state (on or off). Then just
+send SIGQUIT (CTRL-\) to your server to switch from enabled to disabled and vice versa.
+
+Important note: initializers load after environment.rb, but before environment-specific configuration
+files like development.rb. So make sure you have the QueryTrace gem loaded in environment.rb or 
+the runtime toggling will not work. You can use an initializer to selectively turn it on in
+development:
+
+QueryTrace.enable! if Rails.env.development?   
+
 == Example
 
 Before:
