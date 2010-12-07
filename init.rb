@@ -4,7 +4,7 @@ def status
   QueryTrace.enabled? ? "enabled" : "disabled"
 end
 
-puts "=> QueryTrace #{status}; CTRL-\\ to toggle"
+# puts "=> QueryTrace #{status}; CTRL-\\ to toggle"
 
 trap("QUIT") do
   # Sending 2 backspace characters removes the ^\ that is 
